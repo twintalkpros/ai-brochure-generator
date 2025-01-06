@@ -1,0 +1,296 @@
+/* app/components/BrochureForm.module.css */
+.formContainer {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .formCard {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .formCard:hover {
+    transform: translateY(-2px);
+  }
+  
+  .formHeader {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    padding: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .formHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+  }
+  
+  .formHeader h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .formHeader p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+  }
+  
+  .form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .inputGroup label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputIcon {
+    position: absolute;
+    left: 1rem;
+    color: #6b7280;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .inputWrapper input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: white;
+  }
+  
+  .inputWrapper input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    outline: none;
+  }
+  
+  .inputWrapper input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .categoryGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .categoryGroup label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  
+  .categoryCard {
+    position: relative;
+    padding: 1.25rem;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background: white;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .categoryCard::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .blue-gradient::before {
+    background: linear-gradient(135deg, #4f46e5, #2563eb);
+  }
+  
+  .purple-gradient::before {
+    background: linear-gradient(135deg, #7c3aed, #9333ea);
+  }
+  
+  .pink-gradient::before {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+  }
+  
+  .gray-gradient::before {
+    background: linear-gradient(135deg, #4b5563, #1f2937);
+  }
+  
+  .categoryCard:hover::before {
+    opacity: 0.15;
+  }
+  
+  .categoryCard.selected {
+    border-color: #4f46e5;
+    background: #f5f3ff;
+  }
+  
+  .categoryCard.selected::before {
+    opacity: 0.2;
+  }
+  
+  .iconWrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .categoryCard i {
+    font-size: 1.25rem;
+    color: #4f46e5;
+  }
+  
+  .categoryCard p {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    z-index: 1;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #4f46e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.75rem;
+    animation: scaleIn 0.2s ease;
+  }
+  
+  .submitButton {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .submitButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .submitButton:hover::before {
+    opacity: 1;
+  }
+  
+  .submitButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .buttonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .spinnerIcon {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .formContainer {
+      padding: 1rem;
+    }
+  
+    .formHeader {
+      padding: 1.5rem;
+    }
+  
+    .form {
+      padding: 1.5rem;
+    }
+  
+    .categoryGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
